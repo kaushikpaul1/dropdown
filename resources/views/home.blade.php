@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <form action="#">
+                    <form action="#" id="form" method="">
                         <div class="bs-stepper-content mt-0 ">
                             <div id="test-l-1" class="content">
                                 <div class="card  bg-light"onclick="highlightDiv(this)">
@@ -258,7 +258,7 @@
 
                                     </div>
                                 </div>
-                                <!--Documents Required-->
+                                {{-- <!--Documents Required-->
                                 <div class="card bg-light mt-2" onclick="highlightDiv(this)">
                                     <div class="row  mb-1 p-3 align-items-center">
                                         <div class="col-md-12 mb-2">
@@ -309,7 +309,7 @@
                                             <span class="text-danger"></span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!-- Date Of Birth Details -->
                                 {{-- <div class="card bg-light mt-2" onclick="highlightDiv(this)">
                                     <div class="row mb-1 p-3">
@@ -376,24 +376,24 @@
 
 
 
-                                <button class="btn btn-primary " onclick="stepper1.next()">Next</button>
-                                {{-- <button class="btn btn-primary float-end mt-3" onclick="validateAndNext()">Next<svg
+                                {{-- <button class="btn btn-primary " onclick="stepper1.next()">Next</button> --}}
+                                <button class="btn btn-primary float-end mt-3" onclick="validateAndNext()">Next<svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                                    </svg></button></button> --}}
+                                    </svg></button></button>
 
                             </div>
-                            <div id="test-l-2" class="content">
+                            <div id="test-l-2" class="content ">
                                 {{-- <p class="text-center">test 2</p> --}}
                                 <!-- Address -->
 
-                                <div class="row bg-light mb-1 p-3 ">
+                                <div class="row bg-light mb-1 p-3 rounded ">
                                     <div class="col-12 container-fluid">
                                         <label> <strong>8. Address:</strong></label>
                                     </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12  custom-no-border">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mb-md-3 mb-2 custom-no-border">
                                         <div class="card bg-light" onclick="highlightDiv(this)">
                                             <div class="p-3">
                                                 <div class="row mb-2">
@@ -403,7 +403,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mb-2">
-                                                    <div class="col-lg-5 col-md-12">
+                                                    <div class="col-lg-5 col-md-12 ">
                                                         C/O (Name):
                                                     </div>
                                                     <div class="col-lg-7 col-md-12">
@@ -434,7 +434,7 @@
                                                         District: <span class="text-danger"> *
                                                         </span>
                                                     </div>
-                                                    <div class="col-md-7 col-xs-8 ">
+                                                    <div class="col-md-12 col-xs-8 col-lg-7 ">
                                                         {{-- <select name="distP" id="distP"
                                                             class="form-control select2" disabled> --}}
                                                         {{-- <option value="">- SELECT FROM THE LIST-</option>
@@ -480,11 +480,11 @@
 
 
                                                 <div class="row mb-2">
-                                                    <div class="col-md-5 col-xs-12">
+                                                    <div class="col-md-12 col-xs-12 col-lg-5">
                                                         Police Station: <span class="text-danger"> *
                                                         </span>
                                                     </div>
-                                                    <div class="col-md-7 col-xs-12 ">
+                                                    <div class="col-md-12 col-xs-12 col-lg-7 ">
                                                         <select name="psP" id="psP"
                                                             class="form-control select2">
                                                             <option value="">- SELECT FROM THE LIST-</option>
@@ -825,16 +825,118 @@
 
 
 
-                                <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
-                                <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+                                <button class="btn btn-primary" onclick="stepper1.previous()"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                    </svg>Previous
+                                </button>
+                                {{-- <button class="btn btn-primary float-end mt-2" onclick="stepper1.next()">Next</button> --}}
+
+                                <button class="btn btn-primary float-end mt-2" onclick="stepper1.next()">Next<svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                    </svg></button></button>
 
                             </div>
                         </div>
                         <div id="test-l-3" class="content">
-                            <p class="text-center">test 3</p>
+                            {{-- <p class="text-center">test 3</p> --}}
 
 
-                            {{-- !--Relation and Reference-->
+                            <!--Documents Required-->
+                            <div class="container-fluid mb-1 p-3">
+                                <div class="card bg-light container-fluid " onclick="highlightDiv(this)">
+                                    <div class="row   p-3 align-items-center">
+
+                                        <div class="col-md-12 mb-2">
+                                            <label> <strong>5. Documents Required(Atleast One)</strong> <span
+                                                    class="text-danger">
+                                                    *</span></label>
+                                        </div>
+
+
+                                        <div class="row mt-2" style="margin-left: 20px">
+                                            <div class="col-lg-2 col-md-12 mb-0 mt-1 " style="width: 180px">
+                                                <strong>A. Epic No.:</strong>
+
+                                            </div>
+                                            <div class="col-lg-3 col-md-12 ">
+                                                <input type="text"
+                                                    class="form-control document-required txtuppercase" name="epic"
+                                                    id="epic" maxlength="16"
+                                                    title="Epic number should as per Voter Id Card">
+                                                <span class="text-danger"></span>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <input type="file"
+                                                    class="form-control document-required txtuppercase" name="epic"
+                                                    id="epic">
+
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4"style="margin-left: 20px">
+                                            <div class="col-lg-2 col-md-12 mb-0  mt-1" style="width: 180px">
+                                                <strong>B. Aadhar No.:</strong>
+
+                                            </div>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="integer"
+                                                    class="form-control document-required txtuppercase" name="epic"
+                                                    id="epic" maxlength="12"
+                                                    title="Epic number should as per Voter Id Card">
+                                                <span class="text-danger"></span>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <input type="file"
+                                                    class="form-control document-required txtuppercase" name="epic"
+                                                    id="epic">
+
+                                            </div>
+                                        </div>
+
+
+                                        {{-- <div class="col-lg-3 col-md-12">
+                                        <label> <strong>B. Aadhaar No.:</strong></label>
+                                        <input type="text" class="form-control document-required txtuppercase"
+                                            name="adhar" id="adhar" maxlength="12"
+                                            title="Adher number should be 12 digit number only">
+
+                                        <input type="hidden" id="udin_verify" name="udin_verify"
+                                            class="form-control">
+
+                                        <span class="text-danger"></span>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-12">
+                                        <label> <strong>C.(I) Select Category:</strong> </label>
+                                        <select name="kscategory" id="kscategory"
+                                            class="form-control txtuppercase select2">
+                                            <option value="">Select Category</option>
+                                            <option value="AAY">AAY</option>
+                                            <option value="PHH">PHH</option>
+                                            <option value="SPHH">SPHH</option>
+                                            <option value="RKSY-I">RKSY-I</option>
+                                            <option value="RKSY-II">RKSY-II</option>
+                                            <option value="GEN">GEN</option>
+                                        </select>
+                                        <span class="text-danger"></span>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-12">
+                                        <label><strong>C.(II) Khadyasathi No.:</strong> </label>
+                                        <input type="text" class="form-control document-required txtuppercase"
+                                            name="ks" id="ks" maxlength="17">
+                                        <span class="text-danger"></span>
+                                    </div> --}}
+                                    </div>
+                                </div>
+
+
+                                {{-- !--Relation and Reference-->
                             <div class="row bg-light mb-1 p-3 blood_ref">
                                 <div class="col-lg-6 col-md-12 border brelationsec p-3">
                                     <div class="row mb-2">
@@ -1068,8 +1170,8 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <!--Migration Details-->
-                            {{-- <div class="row bg-light mb-1 p-3 ">
+                                <!--Migration Details-->
+                                {{-- <div class="row bg-light mb-1 p-3 ">
                                 <div class="col-lg-5 col-md-12">
                                     <label>15. Whether the applicant or his family migrated from other
                                         State/Country?</label>
@@ -1141,14 +1243,22 @@
 
 
 
-                            <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
-                            <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+
+                                {{-- <button class="btn btn-primary" onclick="stepper1.next()">Next</button> --}}
+                                <div class="d-flex justify-content-center mt-2">
+
+                                    {{-- <button class="btn btn-danger m-2" onclick="resetForm()">Reset</button> --}}
+                                    <button class="btn btn-primary m-2 "
+                                        onclick="stepper1.previous()">Previous</button>
+                                    <button class="btn btn-success m-2" onclick="">Submit</button>
+                                </div>
+                            </div>
                         </div>
-                        <div id="test-l-4" class="content">
+                        {{-- <div id="test-l-4" class="content">
                             <p class="text-center">test 4</p>
                             <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
                             <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
-                        </div>
+                        </div> --}}
                 </div>
                 </form>
             </div>
@@ -1181,7 +1291,7 @@
         //     animation: true
         // })
     </script>
-    <!-- <script>
+    <script>
         function validateAndNext() {
             const form = document.getElementById('form');
 
@@ -1193,7 +1303,7 @@
                 form.classList.add('was-validated');
             }
         }
-    </script> -->
+    </script>
     <script>
         function highlightDiv(clickedDiv) {
             // Remove 'clicked' class from all divs
@@ -1204,7 +1314,17 @@
 
             // Add 'clicked' class to the clicked div
             clickedDiv.classList.add('clicked');
+
+            // Stop event propagation to prevent the body click event from triggering immediately
+            event.stopPropagation();
         }
+        // Add event listener to body to remove click effect when clicked outside the div
+        document.body.addEventListener('click', function() {
+            var allDivs = document.querySelectorAll('.card');
+            allDivs.forEach(function(div) {
+                div.classList.remove('clicked');
+            });
+        });
     </script>
 
     <script>
