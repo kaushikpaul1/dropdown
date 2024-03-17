@@ -23,8 +23,10 @@ return new class extends Migration
 
 
 
-            $table->string('sc');
-            $table->string('st');
+            $table->string('caste');
+
+            $table->integer('sc');
+            $table->integer('st');
             $table->string('obc');
             $table->string('obca');
             $table->string('obcb');

@@ -40,6 +40,21 @@ class mastercontroller extends Controller
             // $info->ward = $request->gpward;
 
 
+            $request->validate([
+                'caste' => 'required|in:SC,ST,OBC', // Ensure the caste value is one of SC, ST, or OBC
+
+            ]);
+            if ($request->caste == 'OBC') {
+                $request->validate([
+                    'obcType' => 'required|in:OBC,OBC-A,OBC-B', // Validate sub-caste if caste is OBC
+                ]);
+                $info->caste = $request->obcType;
+            } else {
+                $info->caste = $request->caste; // For SC and ST, only caste information is stored
+            }
+            // $info->caste = $request->caste;
+
+
 
             if ($request->caste == 'SC') {
                 $info->sc = $request->subcaste;
@@ -128,9 +143,12 @@ class mastercontroller extends Controller
             ->leftjoin('block', 'mastertable.block', '=', 'block.bid')
             ->leftjoin('gp', 'mastertable.gp', '=', 'gp.gpid')
             ->leftjoin('ward', 'mastertable.ward', '=', 'ward.wid')
+
+
             ->leftjoin('sc', 'mastertable.sc', '=', 'sc.scid')
             ->leftjoin('st', 'mastertable.st', '=', 'st.stid')
-            ->get(['state.sname', 'dist.dname', 'subdiv.subname', 'munci.mname', 'block.bname', 'gp.gpname', 'ward.wname', 'sc.scname','st.stname']);
+            ->leftjoin('casteall', 'mastertable.subcaste', '=', 'casteall.casteid')
+            ->get(['state.sname', 'dist.dname', 'subdiv.subname', 'munci.mname', 'block.bname', 'gp.gpname', 'ward.wname', 'mastertable.caste', 'sc.scname', 'st.stname', 'casteall.castename']);
         // ->select('state.sname')
         // ->get();
 

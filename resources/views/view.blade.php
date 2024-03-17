@@ -43,6 +43,8 @@
                     <th>Muncipality/Block Name</th>
                     <th>Gp/Ward Name</th>
                     <th>Caste</th>
+                    <th>Sub Caste</th>
+
 
 
 
@@ -73,12 +75,16 @@
                                 {{ $row->wname ?? 'N/A' }}
                             @endif
                         </td>
+                        <td>{{ $row->caste }}</td>
+
                         <td>
 
                             @if ($row->scname)
                                 {{ $row->scname ?? 'N/A' }}
                             @elseif ($row->stname)
                                 {{ $row->stname ?? 'N/A' }}
+                            @elseif ($row->castename)
+                                {{ $row->castename ?? 'N/A' }}
                             @endif
                         </td>
                     </tr>
