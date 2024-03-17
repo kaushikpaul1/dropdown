@@ -81,7 +81,8 @@
                             </div>
                         </div>
                     </div>
-                    <form action="#" id="form" method="">
+                    <form action="{{ route('form.submit') }}" id="form" method="post">
+                        @csrf
                         <div class="bs-stepper-content mt-0 ">
                             <div id="test-l-1" class="content">
                                 <div class="card  bg-light"onclick="highlightDiv(this)">
@@ -106,15 +107,17 @@
                                             </select>
                                             <!-- <input name="state" id="state" type="hidden" value="WB"> -->
                                         </div>
+
                                         <div class="col-lg-2 col-md-12 mb-0 form-group">
                                             <label> <strong>District</strong><span class="text-danger"> *</span></label>
-                                            <select name="dist" id="dist" class="form-control  select2"
+                                            <select name="distt" id="dist" class="form-control  select2"
                                                 tabindex="-1" aria-hidden="true" disabled>
                                                 <option value=""> - SELECT FROM THE LIST - </option>
 
                                             </select>
                                             <span class="text-danger"></span>
                                         </div>
+
                                         <div class="col-lg-2 col-md-12 mb-0">
                                             <label><strong>Sub-Division</strong> <span class="text-danger">
                                                     *</span></label>
@@ -178,7 +181,7 @@
                                         <div class="col-lg-2 col-md-12 mb-0 ">
                                             <div class="icheck-primary d-inline mr-1">
                                                 <input class="form-check-input" type="radio" name="caste"
-                                                    id="castesc" value="SC" checked="">
+                                                    id="castesc" value="SC" checked>
                                                 <label class="form-check-label" for="castesc">SC</label>
                                             </div>
                                             <div class="icheck-primary d-inline mr-1">
@@ -236,8 +239,8 @@
                                         <div class="col-lg-2 col-md-12">
                                             <label> <strong>5. Mother's Name:</strong> <span class="text-danger">
                                                     *</span></label>
-                                            <input type="text" class="form-control txtuppercase" name="fathername"
-                                                id="fathername" placeholder="Enter father's name"
+                                            <input type="text" class="form-control txtuppercase" name="mothername"
+                                                id="mothername" placeholder="Enter mother's name"
                                                 pattern="[a-zA-Z ]*$" maxlength="35">
                                             <span class="text-danger"></span>
                                         </div>
@@ -377,9 +380,10 @@
 
 
                                 {{-- <button class="btn btn-primary " onclick="stepper1.next()">Next</button> --}}
-                                <button class="btn btn-primary float-end mt-3" onclick="validateAndNext()">Next<svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <button class="btn btn-primary float-end mt-3" onclick="validateAndNext()"
+                                    type="button">Next<svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-arrow-right"
+                                        viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                                     </svg></button></button>
@@ -421,7 +425,7 @@
                                                     <div class="col-lg-7 col-md-12">
                                                         <input type="text" class="form-control txtuppercase"
                                                             name="statenameP" id="statenameP" value="WEST BENGAL"
-                                                            readonly="">
+                                                            readonly=""disabled>
                                                         <input name="stateP" id="stateP" type="hidden"
                                                             value="WB">
                                                         <span class="text-danger"></span>
@@ -435,47 +439,14 @@
                                                         </span>
                                                     </div>
                                                     <div class="col-md-12 col-xs-8 col-lg-7 ">
-                                                        {{-- <select name="distP" id="distP"
-                                                            class="form-control select2" disabled> --}}
-                                                        {{-- <option value="">- SELECT FROM THE LIST-</option>
-                                                            <option value="20"> Alipurduar </option>
-                                                            <option value="13"> Bankura </option>
-                                                            <option value="08"> Birbhum </option>
-                                                            <option value="03"> Cooch Behar </option>
-                                                            <option value="05"> Dakshin Dinajpur </option>
-                                                            <option value="01"> Darjeeling </option>
-                                                            <option value="12"> Hooghly </option>
-                                                            <option value="16"> Howrah </option>
-                                                            <option value="02"> Jalpaiguri </option>
-                                                            <option value="24"> Jhargram </option>
-                                                            <option value="21"> Kalimpong </option>
-                                                            <option value="17"> Kolkata </option>
-                                                            <option value="06"> Maldah </option>
-                                                            <option value="07"> Murshidabad </option>
-                                                            <option value="10"> Nadia </option>
-                                                            <option value="11"> North 24 Parganas </option>
-                                                            <option value="22"> Paschim Bardhaman </option>
-                                                            <option value="15"> Paschim Medinipur </option>
-                                                            <option value="23"> Purba Bardhaman </option>
-                                                            <option value="19"> Purba Medinipur </option>
-                                                            <option value="14"> Purulia </option>
-                                                            <option value="18"> South 24 Parganas </option>
-                                                            <option value="04"> Uttar Dinajpur </option> --}}
-                                                        {{-- </select> --}}
 
-                                                        <select name="dist" id="dist"
-                                                            class="form-control  select2" tabindex="-1"
-                                                            aria-hidden="true" disabled>
-                                                            <option value=""> - SELECT FROM THE LIST - </option>
+                                                        <input type="text" id="distP" class="form-control"
+                                                            placeholder=" - SELECT FROM THE LIST -" disabled>
 
-                                                        </select>
-                                                        <input type="hidden" name="addressdistrict"
-                                                            id="addressdistrict">
+
                                                         <span class="text-danger"></span>
                                                     </div>
-                                                    <!-- <div class="col-md-2 col-xs-4 mb-2">
-                                                    <input name="btnToGetPolStn" type="button" value="Get PS">
-                                                         </div> -->
+
                                                 </div>
 
 
@@ -825,7 +796,7 @@
 
 
 
-                                <button class="btn btn-primary" onclick="stepper1.previous()"><svg
+                                <button class="btn btn-primary" onclick="stepper1.previous()" type="button"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
@@ -834,9 +805,10 @@
                                 </button>
                                 {{-- <button class="btn btn-primary float-end mt-2" onclick="stepper1.next()">Next</button> --}}
 
-                                <button class="btn btn-primary float-end mt-2" onclick="stepper1.next()">Next<svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <button class="btn btn-primary float-end mt-2" onclick="stepper1.next()"
+                                    type="button">Next<svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-arrow-right"
+                                        viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
                                     </svg></button></button>
@@ -873,8 +845,8 @@
                                             </div>
                                             <div class="col-lg-4 col-md-12">
                                                 <input type="file"
-                                                    class="form-control document-required txtuppercase" name="epic"
-                                                    id="epic">
+                                                    class="form-control document-required txtuppercase"
+                                                    name="epicfile" id="epicfile">
 
                                             </div>
                                         </div>
@@ -885,15 +857,15 @@
                                             </div>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="integer"
-                                                    class="form-control document-required txtuppercase" name="epic"
-                                                    id="epic" maxlength="12"
+                                                    class="form-control document-required txtuppercase" name="aadhar"
+                                                    id="aadhar" maxlength="12"
                                                     title="Epic number should as per Voter Id Card">
                                                 <span class="text-danger"></span>
                                             </div>
                                             <div class="col-lg-4 col-md-12">
                                                 <input type="file"
-                                                    class="form-control document-required txtuppercase" name="epic"
-                                                    id="epic">
+                                                    class="form-control document-required txtuppercase"
+                                                    name="aadharfile" id="aadharfile">
 
                                             </div>
                                         </div>
@@ -1248,9 +1220,9 @@
                                 <div class="d-flex justify-content-center mt-2">
 
                                     {{-- <button class="btn btn-danger m-2" onclick="resetForm()">Reset</button> --}}
-                                    <button class="btn btn-primary m-2 "
-                                        onclick="stepper1.previous()">Previous</button>
-                                    <button class="btn btn-success m-2" onclick="">Submit</button>
+                                    <button class="btn btn-primary m-2 " onclick="stepper1.previous()"
+                                        type="button">Previous</button>
+                                    <button class="btn btn-success m-2" onclick="" type="submit">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -1341,6 +1313,8 @@
                 // console.log(sid);
                 if (sid == "") {
                     var sid = 0;
+                    $('#distP').val(""); // Clear the distP field when state changes
+                    return;
                 }
                 $.ajax({
                     url: '{{ url('/fetch-dist/') }}/' + sid,
@@ -1356,8 +1330,16 @@
                                     "'>" + value['dname'] + "</option")
 
                             });
+                            // Automatically set the distP field to the selected district name
+                            var selectedDistrict = $('#dist option:selected').text();
+                            $('#distP').val(selectedDistrict);
                         }
                     }
+                });
+                // Update distP when district selection changes
+                $('#dist').change(function() {
+                    var selectedDistrict = $('#dist option:selected').text();
+                    $('#distP').val(selectedDistrict);
                 });
             });
 
